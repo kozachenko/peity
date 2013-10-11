@@ -107,7 +107,9 @@
     {
       colours: ["#ff9900", "#fff4dd", "#ffc66e"],
       delimiter: null,
-      diameter: 16
+      diameter: 16,
+      strokeColour: "#000000",
+      strokeWidth: 2
     },
     function(opts) {
       if (!opts.delimiter) {
@@ -156,6 +158,12 @@
       }
 
       context.restore()
+      context.translate(width / 2, height / 2)
+      context.beginPath()
+      context.arc(0, 0, radius-1, 0, 2 * Math.PI, false);
+      context.strokeStyle=strokeColour;
+      context.lineWidth=strokeWidth;
+      context.stroke();
     }
   )
 
